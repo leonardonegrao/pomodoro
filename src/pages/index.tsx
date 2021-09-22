@@ -1,10 +1,17 @@
-import styled from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+import SEO from '@components/common/SEO';
+import HomeScreen from '@components/screens/HomeScreen';
+
+import GlobalStyle from '@theme/GlobalStyle';
+import theme from '@theme/index';
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <SEO title="Pomodoro App" description="Pomodoro App made with Next.js" />
+      <HomeScreen />
+    </ThemeProvider>
+  );
 }
