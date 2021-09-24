@@ -15,6 +15,12 @@
 # misc
 .DS_Store
 *.pem
+.editorconfig
+.babelrc
+jest.config.js
+jest.setup.js
+.eslintrc.js
+/tests/unit-coverage
 
 # debug
 npm-debug.log*

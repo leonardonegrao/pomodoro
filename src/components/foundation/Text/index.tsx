@@ -14,13 +14,17 @@ export const TextVariantsMap = (variant: TextVariant) => css`
     `;
     }
 
+    return '';
+  }}
+
+  ${({ theme }) => {
     if (theme.typography.variants[variant].textTransform) {
       return css`
         text-transform: ${theme.typography.variants[variant].textTransform};
     `;
     }
 
-    return css``;
+    return '';
   }}
 `;
 
@@ -39,16 +43,14 @@ interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   tag?: React.ElementType;
   variant: TextVariant;
   children: React.ReactNode;
-  color: string;
 }
 
 export default function Text({
-  tag = 'span', color, variant, children, ...props
+  tag = 'span', variant, children, ...props
 }: TextProps) {
   return (
     <BaseTypography
       as={tag}
-      color={color}
       variant={variant}
       {...props}
     >

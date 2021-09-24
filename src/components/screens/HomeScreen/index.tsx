@@ -25,7 +25,7 @@ export default function HomeScreen() {
       <HomeContent>
         <Text variant="appTitle" tag="h1" color="white">pomodoro</Text>
 
-        <div>Menu</div>
+        <Text variant="heading3" tag="h3" color="white">pomodoro</Text>
 
         <div>Clock</div>
 
