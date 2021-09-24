@@ -14,5 +14,5 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/components/**/*.tsx'
   ],
-  coverageDirectory: '<rootDir>/tests/unit-coverage'
+  coverageDirectory: '<rootDir>/coverage'
 };
