@@ -4,16 +4,12 @@ import { normalize } from 'styled-normalize';
 export default createGlobalStyle`
     * {
       box-sizing: border-box;
-      font-family: 'Spartan', sans-serif;
       margin: 0;
       padding: 0;
     }
     
     ${normalize}
-    
-    button {
-      font-family: 'Spartan', sans-serif;
-    }
+
     body {
       margin: 0;
       padding: 0;
