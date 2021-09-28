@@ -14,5 +14,9 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/components/**/*.tsx'
   ],
-  coverageDirectory: '<rootDir>/coverage'
+  coverageDirectory: '<rootDir>/coverage',
+  "moduleNameMapper": {
+    "^@components/(.*)": "<rootDir>/src/components/$1",
+    "^@infra/(.*)": "<rootDir>/src/infra/$1"
+ }
 };
