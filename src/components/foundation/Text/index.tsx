@@ -1,57 +1,87 @@
+import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
+type TextColor = 'primary.main' | 'gray.main' | 'white';
 type TextVariant = 'appTitle' | 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'body1' | 'body2';
-
-export const TextVariantsMap = (variant: TextVariant) => css`
-  font-size: ${({ theme }) => theme.typography.variants[variant].fontSize};
-  font-weight: ${({ theme }) => theme.typography.variants[variant].fontWeight};
-  line-height: ${({ theme }) => theme.typography.variants[variant].lineHeight};
-
-  ${({ theme }) => {
-    if (theme.typography.variants[variant].letterSpacing) {
-      return css`
-        letter-spacing: ${theme.typography.variants[variant].letterSpacing};
-    `;
-    }
-
-    return '';
-  }}
-
-  ${({ theme }) => {
-    if (theme.typography.variants[variant].textTransform) {
-      return css`
-        text-transform: ${theme.typography.variants[variant].textTransform};
-    `;
-    }
-
-    return '';
-  }}
-`;
-
-interface BaseTypographyProps {
-  variant: TextVariant
-  as?: React.ElementType
+interface TextOptions {
+  lineHeight?: string;
+  fontWeight?: string;
+  opacity?: number;
 }
 
-const BaseTypography = styled.span<BaseTypographyProps>`
+const TextColorMap = (color: TextColor) => css`
+  color: ${({ theme }) => {
+    if (color === 'primary.main') return theme.colors.primary.main;
+    if (color === 'gray.main') return theme.colors.gray.main;
+
+    return theme.colors.white;
+  }};
+`;
+
+const TextVariantsMap = (variant: TextVariant) => css`
+  font-family: ${({ theme }) => theme.typography.fonts[theme.activeTheme.fontFamily].fontFamily};
+
+  font-size: ${({ theme: { typography } }) => typography.variants[variant].sm.fontSize};
+  font-weight: ${({ theme: { typography } }) => typography.variants[variant].sm.fontWeight};
+  line-height: ${({ theme: { typography } }) => typography.variants[variant].sm.lineHeight};
+
+  ${({ theme: { typography } }) => typography.variants[variant].sm.letterSpacing && css`
+    letter-spacing: ${typography.variants[variant].sm.letterSpacing};
+  `}
+  ${({ theme: { typography } }) => typography.variants[variant].sm.textTransform && css`
+    text-transform: ${typography.variants[variant].sm.textTransform};
+  `}
+
+  ${({ theme }) => theme.typography.variants[variant].md && css`
+    @media (min-width: ${theme.breakpoints.md}) {
+      ${theme.typography.variants[variant].md?.fontSize && css`
+        font-size: ${theme.typography.variants[variant].md?.fontSize};
+      `}
+      ${theme.typography.variants[variant].md?.fontWeight && css`
+        font-weight: ${theme.typography.variants[variant].md?.fontWeight};
+      `}
+      ${theme.typography.variants[variant].md?.lineHeight && css`
+        line-height: ${theme.typography.variants[variant].md?.lineHeight};
+      `}
+      ${theme.typography.variants[variant].md?.letterSpacing && css`
+        letter-spacing: ${theme.typography.variants[variant].md?.letterSpacing};
+      `}
+      ${theme.typography.variants[variant].md?.textTransform && css`
+        text-transform: ${theme.typography.variants[variant].md?.textTransform};
+      `}
+    }
+  `}
+`;
+
+const TextOptionsMap = (options: TextOptions) => css`
+  ${() => options.lineHeight && css`line-height: ${options.lineHeight};`}
+  ${() => options.fontWeight && css`font-weight: ${options.fontWeight};`}
+  ${() => options.opacity && css`opacity: ${options.opacity};`}
+`;
+
+interface TextProps extends HTMLAttributes<HTMLSpanElement> {
+  as?: React.ElementType;
+  variant: TextVariant;
+  color: TextColor;
+  options?: TextOptions;
+}
+
+const BaseTypography = styled.span<TextProps>`
+  ${({ color }) => TextColorMap(color)}
   ${({ variant }) => TextVariantsMap(variant)}
-  color: ${({ theme }) => theme.colors.white};
+  ${({ options }) => options && TextOptionsMap(options)}
+
   margin: 0;
 `;
 
-interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  tag?: React.ElementType;
-  variant: TextVariant;
-  children: React.ReactNode;
-}
-
 export default function Text({
-  tag = 'span', variant, children, ...props
-}: TextProps) {
+  as = 'span', variant = 'body1', color = 'white', children, ...props
+}: TextProps): JSX.Element {
   return (
     <BaseTypography
-      as={tag}
+      as={as}
       variant={variant}
+      color={color}
       {...props}
     >
       {children}
