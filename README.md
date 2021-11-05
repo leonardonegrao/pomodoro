@@ -1,6 +1,12 @@
 ![](./logo.svg)
 
-![](https://img.shields.io/github/workflow/status/leonardonegrao/pomodoro/CI?style=for-the-badge) ![](https://img.shields.io/coveralls/github/leonardonegrao/pomodoro?style=for-the-badge) ![](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fpomodoro-nine-rho.vercel.app%2F) ![](https://img.shields.io/github/languages/code-size/leonardonegrao/pomodoro?style=for-the-badge) ![](https://img.shields.io/github/languages/top/leonardonegrao/pomodoro?style=for-the-badge)
+<p align="center">
+  <img src="https://img.shields.io/github/workflow/status/leonardonegrao/pomodoro/CI?style=for-the-badge" />
+  <img src="https://img.shields.io/coveralls/github/leonardonegrao/pomodoro?style=for-the-badge" />
+  <img src="https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fpomodoro-nine-rho.vercel.app%2F" />
+  <img src="https://img.shields.io/github/languages/code-size/leonardonegrao/pomodoro?style=for-the-badge" />
+  <img src="https://img.shields.io/github/languages/top/leonardonegrao/pomodoro?style=for-the-badge" />
+</p>
 
 # 📃 About
 
@@ -18,7 +24,9 @@ Another cool tweak is the dynamic theme. The main color and the font can be chan
 
 The project was made to be scalable, with unit testing and CSS-in-JS, among some patterns and features.
 
-![](mockups.png)
+<p align="center">
+  <img src="./mockups.png" />
+</p>
 
 # 💻 Run Locally
 
