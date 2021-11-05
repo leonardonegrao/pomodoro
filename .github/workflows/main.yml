@@ -19,3 +19,7 @@ jobs:
         run: yarn lint
       - name: Running unit tests
         run: yarn test
+      - name: Coveralls Integration
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
