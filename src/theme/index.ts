@@ -18,7 +18,7 @@ const colors = {
   },
   gray: {
     main: '#D7E0FF',
-    light: 'EFF1FA',
+    light: '#EFF1FA',
   },
   white: '#FFFFFF',
 };
@@ -32,7 +32,7 @@ const typography = {
       fontFamily: '"Roboto Slab", serif',
     },
     mono: {
-      fontFamily: '"Space Mono", sans-serif',
+      fontFamily: '"Space Mono", monospace',
     },
   },
   variants: {
@@ -115,6 +115,9 @@ const typography = {
         fontSize: '12px',
         fontWeight: 'bold',
         lineHeight: '14px',
+      },
+      md: {
+        fontSize: '14px',
       },
     },
   },

@@ -33,8 +33,8 @@
       "@public/*": [
         "./public/*"
       ],
-      "@models/*": [
-        "./src/models/*"
+      "@shared/*": [
+        "./src/shared/*"
       ],
       "@infra/*": [
         "./src/infra/*"

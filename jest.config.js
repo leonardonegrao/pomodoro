@@ -17,6 +17,8 @@ module.exports = {
   coverageDirectory: '<rootDir>/coverage',
   "moduleNameMapper": {
     "^@components/(.*)": "<rootDir>/src/components/$1",
-    "^@infra/(.*)": "<rootDir>/src/infra/$1"
+    "^@theme/(.*)": "<rootDir>/src/theme/$1",
+    "^@infra/(.*)": "<rootDir>/src/infra/$1",
+    "^@shared/(.*)": "<rootDir>/src/shared/$1"
  }
 };

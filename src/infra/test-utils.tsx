@@ -1,12 +1,15 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { FC, ReactElement } from 'react';
-import { ThemeProvider } from 'styled-components';
 
-import theme from '../theme/index';
+import { ThemeProvider } from '@shared/contexts/ThemeProvider';
+import { TimersProvider } from '@shared/contexts/TimersProvider';
+
 
 const AllTheProviders: FC = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    {children}
+  <ThemeProvider>
+    <TimersProvider>
+      {children}
+    </TimersProvider>
   </ThemeProvider>
 );
 

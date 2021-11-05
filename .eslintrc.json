@@ -1,0 +1,43 @@
+{
+  "plugins": [
+    "eslint-plugin-import-helpers"
+  ],
+  "extends": [
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "import-helpers/order-imports": ["warn", {
+      "newlinesBetween": "always",
+      "groups": [
+        "module",
+        ["parent", "sibling", "index"],
+        "/^@components/",
+        "/^@shared/",
+        "/^@infra/",
+        "/^@theme/",
+        "/^@public/"
+      ],
+      "alphabetize": {
+        "order": "asc",
+        "ignoreCase": true
+      }
+    }]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.spec.ts"],
+      "env": {
+        "jest": true
+      },
+      "extends": [
+        "plugin:testing-library/react",
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended"
+      ]
+    }
+  ]
+}

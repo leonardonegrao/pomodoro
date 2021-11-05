@@ -12,10 +12,7 @@ describe('<SEO />', () => {
     const description = 'page description';
 
     render(
-      <SEO
-        title={title}
-        description={description}
-      />,
+      <SEO title={title} description={description} />,
       { container: document.head },
     );
 
@@ -24,20 +21,18 @@ describe('<SEO />', () => {
     const urlElement = document.getElementsByTagName('meta').namedItem('url');
 
     expect(document.title).toBe(`${title} | Pomodoro`);
-    expect(descriptionElement!.content).toBe(description);
-    expect(imageElement!.content).toBe(
+    expect(descriptionElement?.content).toBe(description);
+    expect(imageElement?.content).toBe(
       'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/wi7nij2cfvvqoxlemy1g.jpg',
     );
-    expect(urlElement!.content).toBe('https://pomodoro-leonardonegrao.vercel.app/');
+    expect(urlElement?.content).toBe('https://pomodoro-leonardonegrao.vercel.app/');
   });
 
   it('should pass fallback title if no title was provided', () => {
     const description = 'page description';
 
     render(
-      <SEO
-        description={description}
-      />,
+      <SEO description={description} />,
       { container: document.head },
     );
 

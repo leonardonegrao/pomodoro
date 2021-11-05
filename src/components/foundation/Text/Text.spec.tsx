@@ -13,7 +13,7 @@ describe('<Text />', () => {
     );
 
     const text = screen.getByText('foo');
-    expect(text).toMatchSnapshot();
+    expect(text).toBeInTheDocument();
   });
 
   it('should render as the HTML element passed by props', () => {
@@ -33,7 +33,7 @@ describe('<Text />', () => {
   });
 
   it('should render using the color passed by props', () => {
-    const { container } = render(
+    render(
       <Text
         as="h3"
         color="primary.main"
@@ -43,7 +43,9 @@ describe('<Text />', () => {
       </Text>,
     );
 
-    expect(container.firstChild).toHaveStyle('color: #1E213F');
+    const textComponent = screen.getByText('foo');
+
+    expect(textComponent).toHaveStyle('color: #1E213F');
   });
 
   it('should apply any options passed by props', () => {

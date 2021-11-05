@@ -18,6 +18,18 @@ const TextColorMap = (color: TextColor) => css`
   }};
 `;
 
+const resolveLetterSpacingMargin = (letterSpacing: string | undefined) => {
+  if (!letterSpacing) return '0px';
+
+  const [firstCharacter] = [...letterSpacing];
+  
+  if (firstCharacter === '-') {
+    return '0px';
+  }
+
+  return `-${letterSpacing}`;
+};
+
 const TextVariantsMap = (variant: TextVariant) => css`
   font-family: ${({ theme }) => theme.typography.fonts[theme.activeTheme.fontFamily].fontFamily};
 
@@ -27,6 +39,7 @@ const TextVariantsMap = (variant: TextVariant) => css`
 
   ${({ theme: { typography } }) => typography.variants[variant].sm.letterSpacing && css`
     letter-spacing: ${typography.variants[variant].sm.letterSpacing};
+    margin-right: ${resolveLetterSpacingMargin(typography.variants[variant].sm.letterSpacing)};
   `}
   ${({ theme: { typography } }) => typography.variants[variant].sm.textTransform && css`
     text-transform: ${typography.variants[variant].sm.textTransform};
@@ -45,6 +58,7 @@ const TextVariantsMap = (variant: TextVariant) => css`
       `}
       ${theme.typography.variants[variant].md?.letterSpacing && css`
         letter-spacing: ${theme.typography.variants[variant].md?.letterSpacing};
+        margin-right: ${resolveLetterSpacingMargin(theme.typography.variants[variant].md?.letterSpacing)};
       `}
       ${theme.typography.variants[variant].md?.textTransform && css`
         text-transform: ${theme.typography.variants[variant].md?.textTransform};
@@ -70,8 +84,6 @@ const BaseTypography = styled.span<TextProps>`
   ${({ color }) => TextColorMap(color)}
   ${({ variant }) => TextVariantsMap(variant)}
   ${({ options }) => options && TextOptionsMap(options)}
-
-  margin: 0;
 `;
 
 export default function Text({
