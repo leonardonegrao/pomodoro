@@ -1,11 +1,17 @@
 import 'styled-components';
 
-interface TypographyVariant {
-  fontSize: string;
-  fontWeight: string;
+interface ResponsiveTypographyVariant {
+  fontSize?: string;
+  fontWeight?: string;
   lineHeight?: string;
   letterSpacing?: string;
   textTransform?: string;
+}
+
+interface TypographyVariant {
+  sm: ResponsiveTypographyVariant;
+  md?: ResponsiveTypographyVariant;
+  lg?: ResponsiveTypographyVariant;
 }
 
 declare module 'styled-components' {
@@ -19,7 +25,7 @@ declare module 'styled-components' {
     colors: {
       primary: {
         main: string;
-        light: string;
+        dark: string;
       };
       secondary: {
         orange: string;
@@ -54,6 +60,11 @@ declare module 'styled-components' {
         body1: TypographyVariant;
         body2: TypographyVariant
       };
-    },
+    };
+
+    activeTheme: {
+      color: 'orange' | 'blue' | 'purple';
+      fontFamily: 'sansSerif' | 'serif' | 'mono';
+    };
   }
 }

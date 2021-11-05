@@ -1,36 +1,53 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import AppIcon from '@components/common/AppIcon';
-import Text from '@components/foundation/Text';
+import Menu from './components/Menu';
+import SettingsModal from './components/SettingsModal';
+import Timer from './components/Timer';
 
-const HomeWrapper = styled.div`
+import AppIcon from '@components/common/AppIcon';
+import Logo from '@components/common/Logo';
+import Box from '@components/foundation/Box';
+
+import { useTimers } from '@shared/contexts/TimersProvider';
+import { TimerType } from '@shared/models/Timer';
+
+const StyledHome = styled.div`
   width: 100%;
   height: 100%;
 
   background: ${({ theme }) => theme.colors.primary.main};
 `;
 
-const HomeContent = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+export default function HomeScreen(): JSX.Element {
+  const [timers, setTimers] = useTimers();
+  const [timerType, setTimerType] = useState<TimerType>(TimerType.Pomodoro);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
-  height: 100%;
-`;
+  function handleModalToggle() {
+    setIsSettingsModalOpen((previousValue) => !previousValue);
+  }
 
-export default function HomeScreen() {
   return (
-    <HomeWrapper>
-      <HomeContent>
-        <Text variant="appTitle" tag="h1" color="white">pomodoro</Text>
+    <StyledHome>
+      <Box as="main" flexDirection="column" justifyContent="space-around">
+        <Logo />
 
-        <Text variant="heading3" tag="h3" color="white">pomodoro</Text>
+        <Menu timers={timers} activeTimerType={timerType} onSelect={setTimerType} />
+        <Timer timers={timers} type={timerType} />
 
-        <div>Clock</div>
+        <button onClick={handleModalToggle}>
+          <AppIcon icon="settings" fillOpacity=".4" />
+        </button>
+      </Box>
 
-        <AppIcon icon="settings" />
-      </HomeContent>
-    </HomeWrapper>
+      {isSettingsModalOpen && (
+        <SettingsModal
+          timers={timers}
+          onTimersChange={setTimers}
+          onClose={handleModalToggle}
+        />
+      )}
+    </StyledHome>
   );
 }
