@@ -55,7 +55,7 @@ export default function ColorSelect({ value, onChange }: ColorSelectProps) {
   const colors: Colors[] = [Colors.Orange, Colors.Blue, Colors.Purple];
 
   return (
-    <StyledColorSelect>
+    <StyledColorSelect role="radiogroup">
       {colors.map((color) => (
         <label
           key={color}
@@ -64,7 +64,13 @@ export default function ColorSelect({ value, onChange }: ColorSelectProps) {
           <InnerCircle color={color} justifyContent="center" alignItems="center">
             {value === color && <AppIcon icon="check" strokeColor="#161932" height="11" />}
           </InnerCircle>
-          <input name="color-select" type="radio" readOnly />
+          <input
+            name="color-select"
+            type="radio"
+            value={color}
+            readOnly
+            checked={value === color}
+          />
         </label>
       ))}
     </StyledColorSelect>
