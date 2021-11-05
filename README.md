@@ -44,6 +44,16 @@ npm run dev
 yarn dev
 ```
 
+# 🧪 Run Tests
+
+To run tests it's also required to install dependencies (see above), and then run:
+
+```bash
+npm run test
+# or
+yarn test
+```
+
 # 🤝 Tech Stack & Acknowledgements
 
 This project was made with:
