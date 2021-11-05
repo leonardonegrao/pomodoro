@@ -77,10 +77,10 @@ export default function InputNumber({ value, onChange }: InputNumberProps) {
       <input type="number" readOnly value={value} />
 
       <Box flexDirection="column" className="actions">
-        <button className="up" type="button" onClick={() => onChange(value + 1)}>
+        <button title="Increment" className="up" type="button" onClick={() => onChange(value + 1)}>
           <AppIcon icon="arrow-up" strokeColor="#1E213F" strokeOpacity="0.25" height="7" />
         </button>
-        <button className="down" type="button" onClick={() => onChange(value - 1)}>
+        <button title="Decrement" className="down" type="button" onClick={() => onChange(value - 1)}>
           <AppIcon icon="arrow-down" strokeColor="#1E213F" strokeOpacity="0.25" height="7" />
         </button>
       </Box>

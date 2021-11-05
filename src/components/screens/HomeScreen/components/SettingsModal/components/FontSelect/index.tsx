@@ -61,7 +61,7 @@ export default function FontSelect({ value, onChange }: FontSelectProps) {
   const fonts: Fonts[] = [Fonts.Sans, Fonts.Serif, Fonts.Mono];
 
   return (
-    <StyledFontSelect alignItems="center">
+    <StyledFontSelect alignItems="center" role="radiogroup">
       {fonts.map((font) => (
         <label
           key={font}
@@ -75,7 +75,13 @@ export default function FontSelect({ value, onChange }: FontSelectProps) {
           >
           Aa
           </InnerCircle>
-          <input name="fonts-select" type="radio" defaultValue={font} />
+          <input
+            name="fonts-select"
+            type="radio"
+            value={font}
+            readOnly
+            checked={value === font}
+          />
         </label>
       ))}
     </StyledFontSelect>

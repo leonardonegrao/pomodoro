@@ -173,7 +173,7 @@ export default function SettingsModal({ timers, onTimersChange, onClose }: Setti
   }
 
   return (
-    <StyledSettingsModal>
+    <StyledSettingsModal role="dialog" aria-labelledby="settings-modal-title">
       <Box
         as="form"
         onSubmit={handleSubmit}
@@ -182,8 +182,8 @@ export default function SettingsModal({ timers, onTimersChange, onClose }: Setti
         justifyContent="flex-start"
       >
         <Box className="header" justifyContent="space-between">
-          <Text as="h1" variant="heading2" color="primary.main">Settings</Text>
-          <button onClick={onClose} type="button" className="close-button">
+          <Text id="settings-modal-title" as="h1" variant="heading2" color="primary.main">Settings</Text>
+          <button title="Close settings" onClick={onClose} type="button" className="close-button">
             <AppIcon icon="close" height="14" />
           </button>
         </Box>

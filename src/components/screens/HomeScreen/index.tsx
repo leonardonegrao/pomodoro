@@ -36,7 +36,7 @@ export default function HomeScreen(): JSX.Element {
         <Menu timers={timers} activeTimerType={timerType} onSelect={setTimerType} />
         <Timer timers={timers} type={timerType} />
 
-        <button onClick={handleModalToggle}>
+        <button title="Open Settings" onClick={handleModalToggle}>
           <AppIcon icon="settings" fillOpacity=".4" />
         </button>
       </Box>

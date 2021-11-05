@@ -18,9 +18,9 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function Button({ children, ...rest }: React.ComponentPropsWithoutRef<'button'>) {
+export default function Button({ children, type = 'button', ...rest }: React.ComponentPropsWithoutRef<'button'>) {
   return (
-    <StyledButton {...rest}>
+    <StyledButton type={type} {...rest}>
       {children}
     </StyledButton>
   );
