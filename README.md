@@ -1,34 +1,62 @@
-# TypeScript & Styled Components Next.js example
+![](./logo.svg)
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
+![](https://img.shields.io/github/workflow/status/leonardonegrao/pomodoro/CI?style=for-the-badge) ![](https://img.shields.io/coveralls/github/leonardonegrao/pomodoro?style=for-the-badge) ![](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fpomodoro-nine-rho.vercel.app%2F) ![](https://img.shields.io/github/languages/code-size/leonardonegrao/pomodoro?style=for-the-badge) ![](https://img.shields.io/github/languages/top/leonardonegrao/pomodoro?style=for-the-badge)
 
-## Preview
+# 📃 About
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+Pomodoro is a time management webapp based on the Pomodoro technique. The design was provided by Frontend Mentor and development was made using Next.js and Styled Components.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript-styled-components)
+It features an animated timer with three types:
 
-## Deploy your own
+- Pomodoro (long period of focus)
+- Short Break (short interval to distract yourself)
+- Long Break (long interval to rest)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Timers can be paused, resumed and changed. It's possible to change a timer period in minutes, to better suit one's needs.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components&project-name=with-typescript-styled-components&repository-name=with-typescript-styled-components)
+Another cool tweak is the dynamic theme. The main color and the font can be changed to one of the supported options (three for each).
 
-## How to use it?
+The project was made to be scalable, with unit testing and CSS-in-JS, among some patterns and features.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+![](mockups.png)
+
+# 💻 Run Locally
+
+The requirements to run this application locally are:
+
+- Node.js and npm (Node's v14 or v16 LTS is recommended);
+- Recent version of Chrome, Firefox or a Chromium-based browser (this is only a demo, not focused on compatibility);
+- Yarn is optional, but recommended as it was the tool used to manage dependencies.
+
+Once the repository was downloaded or cloned, you'll need to install the dependencies:
 
 ```bash
-npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
+npm install
 # or
-yarn create next-app --example with-typescript-styled-components with-typescript-styled-components-app
+yarn install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+With dependencies installed, the project is ready to run!
 
-## Notes
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-This is an amalgamation of the 2 existing examples:
+# 🤝 Tech Stack & Acknowledgements
 
-- [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
-- [with-styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+This project was made with:
+
+- [React.js](https://github.com/facebook/react)
+- [Next.js](https://github.com/vercel/next.js/)
+- [TypeScript](https://github.com/microsoft/TypeScript)
+- [Styled Components](https://github.com/styled-components/styled-components)
+- [React Testing Library](https://github.com/testing-library/react-testing-library)
+- [ESLint](https://github.com/eslint/eslint)
+- [Husky](https://github.com/typicode/husky)
+- [Vercel](https://vercel.com/)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- ☕ + 🎧
+
+A special thanks to [Frontend Mentor](https://www.frontendmentor.io/) for the (great) design 🙏.
